@@ -15,6 +15,48 @@
         <th>Read?</th>
       </tr>
     </table>
+    <button id="newBook">NEW BOOK</button>
+    <div class="form-div" id="entireForm">
+      <form>
+        <h1>Please enter info on your new book</h1>
+        <div class="form-item">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div class="form-item">
+          <label for="author">Author</label>
+          <input type="text" name="author" id="author" />
+        </div>
+        <div class="form-item">
+          <label for="pages">Pages</label>
+          <input type="number" name="pages" id="pages" />
+        </div>
+        <div class="form-item">
+          <fieldset>
+            <legend>Have you read the book?</legend>
+            <div>
+              <input
+                type="radio"
+                name="readOrNot"
+                id="hasBeenRead"
+                value="Yes"
+                checked
+              />
+              <label for="hasBeenRead">Yes</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="readOrNot"
+                id="hasNotBeenRead"
+                value="No"
+              />
+              <label for="hasNotBeenRead">No</label>
+            </div>
+          </fieldset>
+        </div>
+      </form>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

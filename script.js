@@ -14,14 +14,14 @@ const addBookToLibrary = (title, author, pages, read) => {
   myLibrary.push(new Book(title, author, pages, read));
 };
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "Not yet");
 
-addBookToLibrary("test", "test2", 200, "not read yet");
+addBookToLibrary("test", "test2", 200, "Not yet");
 addBookToLibrary(
   "The Hitchhiker's Guide to the Galaxy",
   "Douglas Adams",
   216,
-  "read"
+  "Yes"
 );
 
 let table = document.querySelector("#libraryTable");
@@ -42,3 +42,21 @@ const displayBook = (library) => {
 };
 
 displayBook(myLibrary);
+
+let newBookButton = document.querySelector("#newBook");
+
+let formItself = document.querySelector("#entireForm");
+
+formItself.style.display = "none";
+
+const changeDisplay = (content) => {
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
+  }
+};
+
+newBookButton.onclick = function () {
+  changeDisplay(formItself);
+};
