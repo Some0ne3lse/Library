@@ -62,9 +62,9 @@ displayBooks(myLibrary);
 
 let newBookButton = document.querySelector("#newBook");
 
-let formItself = document.querySelector("#entireForm");
+let formContainer = document.querySelector("#formContainer");
 
-formItself.style.display = "none";
+formContainer.style.display = "none";
 
 const changeDisplay = (content) => {
   if (content.style.display === "block") {
@@ -75,5 +75,28 @@ const changeDisplay = (content) => {
 };
 
 newBookButton.onclick = function () {
-  changeDisplay(formItself);
+  changeDisplay(formContainer);
 };
+
+let formItself = document.querySelector("#formItself");
+formItself.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (
+    document.querySelector("input[name='readOrNot']:checked").value === "true"
+  ) {
+    read = true;
+  } else {
+    read = false;
+  }
+  title = document.querySelector("#title").value;
+  author = document.querySelector("#author").value;
+  pages = document.querySelector("#pages").value;
+  addBookToLibrary(title, author, pages, read);
+  booksDisplay.replaceChildren();
+  displayBooks(myLibrary);
+  document.querySelector("#title").value = "";
+  document.querySelector("#author").value = "";
+  document.querySelector("#pages").value = "";
+  document.querySelector("#hasBeenRead").checked = "true";
+  changeDisplay(formContainer);
+});
