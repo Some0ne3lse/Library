@@ -14,34 +14,51 @@ const addBookToLibrary = (title, author, pages, read) => {
   myLibrary.push(new Book(title, author, pages, read));
 };
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "Not yet");
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
 
-addBookToLibrary("test", "test2", 200, "Not yet");
+addBookToLibrary("test", "test2", 200, false);
 addBookToLibrary(
   "The Hitchhiker's Guide to the Galaxy",
   "Douglas Adams",
   216,
-  "Yes"
+  true
 );
 
-let table = document.querySelector("#libraryTable");
+let booksDisplay = document.querySelector("#allBooks");
 
-const displayBook = (library) => {
+const displayBooks = (library) => {
   for (const book of library) {
-    let row = table.insertRow(-1);
-    let c0 = row.insertCell(0);
-    let c1 = row.insertCell(1);
-    let c2 = row.insertCell(2);
-    let c3 = row.insertCell(3);
+    const theBook = document.createElement("div");
+    theBook.classList.add("the-book");
+    booksDisplay.appendChild(theBook);
 
-    c0.innerText = book.title;
-    c1.innerText = book.author;
-    c2.innerText = book.pages;
-    c3.innerText = book.read;
+    const title = document.createElement("h3");
+    title.classList.add("title");
+    title.textContent = book.title;
+    theBook.appendChild(title);
+
+    const author = document.createElement("p");
+    author.classList.add("author");
+    author.textContent = book.author;
+    theBook.appendChild(author);
+
+    const pages = document.createElement("p");
+    pages.classList.add("pages");
+    pages.textContent = book.pages;
+    theBook.appendChild(pages);
+
+    const readOrNot = document.createElement("p");
+    readOrNot.classList.add("read-or-not");
+    if (book.read === true) {
+      readOrNot.textContent = "This book has been read";
+    } else {
+      readOrNot.textContent = "This book has not been read";
+    }
+    theBook.appendChild(readOrNot);
   }
 };
 
-displayBook(myLibrary);
+displayBooks(myLibrary);
 
 let newBookButton = document.querySelector("#newBook");
 

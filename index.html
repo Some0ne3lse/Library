@@ -7,17 +7,10 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <table id="libraryTable">
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Pages</th>
-        <th>Read?</th>
-      </tr>
-    </table>
+    <div id="allBooks" class="allBooks"></div>
     <button id="newBook">NEW BOOK</button>
     <div class="form-div" id="entireForm">
-      <form>
+      <form action="">
         <h1>Please enter info on your new book</h1>
         <div class="form-item">
           <label for="title">Title</label>
@@ -39,7 +32,7 @@
                 type="radio"
                 name="readOrNot"
                 id="hasBeenRead"
-                value="Yes"
+                value="true"
                 checked
               />
               <label for="hasBeenRead">Yes</label>
@@ -49,12 +42,13 @@
                 type="radio"
                 name="readOrNot"
                 id="hasNotBeenRead"
-                value="No"
+                value="false"
               />
               <label for="hasNotBeenRead">No</label>
             </div>
           </fieldset>
         </div>
+        <button type="submit">Add book</button>
       </form>
     </div>
     <script src="script.js"></script>
