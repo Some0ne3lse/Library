@@ -104,6 +104,7 @@ newBookButton.onclick = function () {
 const formItself = document.querySelector("#formItself");
 formItself.addEventListener("submit", (event) => {
   event.preventDefault();
+  let read;
   if (
     document.querySelector("input[name='readOrNot']:checked").value === "true"
   ) {
@@ -111,9 +112,9 @@ formItself.addEventListener("submit", (event) => {
   } else {
     read = false;
   }
-  title = document.querySelector("#title").value;
-  author = document.querySelector("#author").value;
-  pages = document.querySelector("#pages").value;
+  let title = document.querySelector("#title").value;
+  let author = document.querySelector("#author").value;
+  let pages = document.querySelector("#pages").value;
   if (
     myLibrary.find(
       (book) =>
