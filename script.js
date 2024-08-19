@@ -61,7 +61,7 @@ const displayBooks = (library) => {
     deleteButton.textContent = "Delete";
     theBook.appendChild(deleteButton);
 
-    deleteButton.addEventListener("click", () => {
+    deleteButton.onclick = function () {
       const findBook = myLibrary.findIndex(
         (element) =>
           element.title === book.title && element.author === book.author
@@ -74,7 +74,7 @@ const displayBooks = (library) => {
       } else {
         console.log("Book not found in the library.");
       }
-    });
+    };
     const readOrNotButton = document.createElement("button");
     readOrNotButton.classList.add("read-or-not-button");
     readOrNotButton.textContent = "Change read status";
