@@ -55,6 +55,26 @@ const displayBooks = (library) => {
       readOrNot.textContent = "This book has not been read";
     }
     theBook.appendChild(readOrNot);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    deleteButton.textContent = "Delete";
+    theBook.appendChild(deleteButton);
+
+    deleteButton.addEventListener("click", () => {
+      const findBook = myLibrary.findIndex(
+        (element) =>
+          element.title === book.title && element.author === book.author
+      );
+
+      if (findBook !== -1) {
+        myLibrary.splice(findBook, 1);
+        booksDisplay.replaceChildren();
+        displayBooks(myLibrary);
+      } else {
+        console.log("Book not found in the library.");
+      }
+    });
   }
 };
 
@@ -91,12 +111,22 @@ formItself.addEventListener("submit", (event) => {
   title = document.querySelector("#title").value;
   author = document.querySelector("#author").value;
   pages = document.querySelector("#pages").value;
-  addBookToLibrary(title, author, pages, read);
-  booksDisplay.replaceChildren();
-  displayBooks(myLibrary);
-  document.querySelector("#title").value = "";
-  document.querySelector("#author").value = "";
-  document.querySelector("#pages").value = "";
-  document.querySelector("#hasBeenRead").checked = "true";
-  changeDisplay(formContainer);
+  if (
+    myLibrary.find(
+      (book) =>
+        book.title.toLowerCase() === title.toLowerCase() &&
+        book.author.toLowerCase() === author.toLowerCase()
+    )
+  ) {
+    alert("NOPE");
+  } else {
+    addBookToLibrary(title, author, pages, read);
+    booksDisplay.replaceChildren();
+    displayBooks(myLibrary);
+    document.querySelector("#title").value = "";
+    document.querySelector("#author").value = "";
+    document.querySelector("#pages").value = "";
+    document.querySelector("#hasBeenRead").checked = "true";
+    changeDisplay(formContainer);
+  }
 });
