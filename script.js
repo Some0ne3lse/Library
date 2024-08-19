@@ -24,7 +24,7 @@ addBookToLibrary(
   true
 );
 
-let booksDisplay = document.querySelector("#allBooks");
+const booksDisplay = document.querySelector("#allBooks");
 
 const displayBooks = (library) => {
   for (const book of library) {
@@ -80,15 +80,18 @@ const displayBooks = (library) => {
 
 displayBooks(myLibrary);
 
-let newBookButton = document.querySelector("#newBook");
+const newBookButton = document.querySelector("#newBook");
 
-let formContainer = document.querySelector("#formContainer");
+const formContainer = document.querySelector("#formContainer");
+
+const alreadyAdded = document.querySelector("#alreadyAdded");
+alreadyAdded.style.visibility = "hidden";
 
 newBookButton.onclick = function () {
   formContainer.showModal();
 };
 
-let formItself = document.querySelector("#formItself");
+const formItself = document.querySelector("#formItself");
 formItself.addEventListener("submit", (event) => {
   event.preventDefault();
   if (
@@ -108,7 +111,7 @@ formItself.addEventListener("submit", (event) => {
         book.author.toLowerCase() === author.toLowerCase()
     )
   ) {
-    alert("NOPE");
+    alreadyAdded.style.visibility = "visible";
   } else {
     addBookToLibrary(title, author, pages, read);
     booksDisplay.replaceChildren();
