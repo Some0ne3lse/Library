@@ -9,7 +9,7 @@
   <body>
     <div id="allBooks" class="allBooks"></div>
     <button id="newBook">NEW BOOK</button>
-    <div class="form-div" id="formContainer">
+    <dialog class="form-div" id="formContainer">
       <form id="formItself">
         <h1>Please enter info on your new book</h1>
         <div class="form-item">
@@ -50,8 +50,9 @@
           </fieldset>
         </div>
         <button type="submit">Add book</button>
+        <button type="button" id="closeModal">Cancel</button>
       </form>
-    </div>
+    </dialog>
     <script src="script.js"></script>
   </body>
 </html>

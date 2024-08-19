@@ -84,18 +84,8 @@ let newBookButton = document.querySelector("#newBook");
 
 let formContainer = document.querySelector("#formContainer");
 
-formContainer.style.display = "none";
-
-const changeDisplay = (content) => {
-  if (content.style.display === "block") {
-    content.style.display = "none";
-  } else {
-    content.style.display = "block";
-  }
-};
-
 newBookButton.onclick = function () {
-  changeDisplay(formContainer);
+  formContainer.showModal();
 };
 
 let formItself = document.querySelector("#formItself");
@@ -127,6 +117,15 @@ formItself.addEventListener("submit", (event) => {
     document.querySelector("#author").value = "";
     document.querySelector("#pages").value = "";
     document.querySelector("#hasBeenRead").checked = "true";
-    changeDisplay(formContainer);
+    formContainer.close();
   }
 });
+
+const cancelButton = document.querySelector("#closeModal");
+cancelButton.onclick = function () {
+  document.querySelector("#title").value = "";
+  document.querySelector("#author").value = "";
+  document.querySelector("#pages").value = "";
+  document.querySelector("#hasBeenRead").checked = "true";
+  formContainer.close();
+};
