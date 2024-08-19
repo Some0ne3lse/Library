@@ -75,6 +75,16 @@ const displayBooks = (library) => {
         console.log("Book not found in the library.");
       }
     });
+    const readOrNotButton = document.createElement("button");
+    readOrNotButton.classList.add("read-or-not-button");
+    readOrNotButton.textContent = "Change read status";
+    theBook.appendChild(readOrNotButton);
+
+    readOrNotButton.onclick = function () {
+      book.read = !book.read;
+      booksDisplay.replaceChildren();
+      displayBooks(myLibrary);
+    };
   }
 };
 
