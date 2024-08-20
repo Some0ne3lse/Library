@@ -58,7 +58,7 @@ const displayBooks = (library) => {
 
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-button");
-    deleteButton.textContent = "Delete";
+    deleteButton.textContent = "X";
     theBook.appendChild(deleteButton);
 
     deleteButton.onclick = function () {
@@ -77,7 +77,7 @@ const displayBooks = (library) => {
     };
     const readOrNotButton = document.createElement("button");
     readOrNotButton.classList.add("read-or-not-button");
-    readOrNotButton.textContent = "Change read status";
+    readOrNotButton.textContent = "Read?";
     theBook.appendChild(readOrNotButton);
 
     readOrNotButton.onclick = function () {
