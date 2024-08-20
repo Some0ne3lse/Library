@@ -16,7 +16,6 @@ const addBookToLibrary = (title, author, pages, read) => {
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
 
-addBookToLibrary("test", "test2", 200, false);
 addBookToLibrary(
   "The Hitchhiker's Guide to the Galaxy",
   "Douglas Adams",
@@ -131,6 +130,7 @@ formItself.addEventListener("submit", (event) => {
     document.querySelector("#author").value = "";
     document.querySelector("#pages").value = "";
     document.querySelector("#hasBeenRead").checked = "true";
+    alreadyAdded.style.visibility = "hidden";
     formContainer.close();
   }
 });
@@ -141,5 +141,6 @@ cancelButton.onclick = function () {
   document.querySelector("#author").value = "";
   document.querySelector("#pages").value = "";
   document.querySelector("#hasBeenRead").checked = "true";
+  alreadyAdded.style.visibility = "hidden";
   formContainer.close();
 };
